@@ -4,7 +4,7 @@
   "description": "SimForTrip",
   "main": "index.js",
   "scripts": {
-    "test": "jasmine ./spec/usersSpec.js"
+    "test": "jasmine ./spec/*Spec.js"
   },
   "author": "Eddie Zeltser",
   "license": "ISC",
@@ -12,6 +12,7 @@
     "jasmine": "^2.9.0"
   },
   "dependencies": {
+    "bcrypt": "^1.0.3",
     "mongoose": "^5.0.3"
   }
 }

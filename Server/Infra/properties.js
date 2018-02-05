@@ -5,7 +5,7 @@
  */
 'use strict';
 
-const IS_SIMULATOR = true;
+const IS_SIMULATOR = false;
 
 module.exports = {
     IS_SIMULATOR : IS_SIMULATOR

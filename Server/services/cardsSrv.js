@@ -5,17 +5,19 @@
  */
 'use strict';
 
-let userSch = require('../Infra/schemas/UserSchema');
+let cardSch = require('../Infra/schemas/CardSchema');
 let dbProp = require('../Infra/db/dbProperties');
 let prop = require('../Infra/properties');
-var connection = require('./../infra/dataBase/dbConnection');
-let userMdl;
+let connection = require('../Infra/db/dbConnection');
+let cardMdl;
 
-try {
-    userMdl = connection.getConnection().model(dbProp.COL_CARDS, userSch.getSchema());
-}
-catch (err) {
-    console.log('error: ' + err);
+if (!prop.IS_SIMULATOR) {
+    try {
+        cardMdl = connection.getConnection().model(dbProp.COL_CARDS, cardSch.getSchema);
+    }
+    catch (err) {
+        console.log('error: ' + err);
+    }
 }
 
 let addNewCard = function (card) {
@@ -24,18 +26,17 @@ let addNewCard = function (card) {
             //get data from file
         }
         else {
-            // get data from DB
-        }
-    });
-};
-
-let getAllCards = function (card) {
-    return new Promise((resolve, reject) => {
-        if (prop.IS_SIMULATOR) {
-            //get data from file
-        }
-        else {
-            // get data from DB
+            cardMdl(card).save((err, data) => {
+                if (err) {
+                    if (err.code === 11000) {
+                        reject('This SIM card is already in the system')
+                    }
+                    reject(err);
+                }
+                else {
+                    resolve(data);
+                }
+            });
         }
     });
 };
@@ -53,6 +54,5 @@ let getCardDet = function (card) {
 
 module.exports = {
     addNewCard: addNewCard,
-    getAllCards: getAllCards,
     getCardDet: getCardDet
 };

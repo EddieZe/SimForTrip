@@ -1,35 +1,47 @@
-describe("getUsers", () => {
+/*describe("getUsers", () => {
     "use strict";
-    let users = require('../Server/services/users');
-    let user = [
-        {
+    let usersSrv = require('../Server/services/usersSrv');
+    let user = {
             "userName": "eddie",
-            "email": "Eddie.Zeltser@gmail.com",
-            "password": "123456"
-        },
-        {
-            "userName": "eddie2",
-            "email": "Eddie2.Zeltser@gmail.com",
-            "password": "1234567"
-        },
-        {
-            "userName": "eddie3",
-            "email": "Eddie2.Zeltser@gmail.com",
-            "password": "12345678"
-        }
-    ];
-    jasmine.DEFAULT_TIMEOUT_INTERVAL = 10000;
+            "password": "abc45"
+        };
+    it("I should get user details", (done) => {
 
-    it("I should get all the users from the file", (done) => {
-
-        users.getUsers()
-            .then(data => {
-                expect(data).toEqual(user);
+        usersSrv.getUserDetails(user)
+            .then(userDet => {
+                console.log(userDet);
+                expect(userDet.userName).toBeTruthy();
+                expect(userDet.email).toBeTruthy();
+                expect(userDet.authenticationToken ).toBeTruthy();
                 done();
             })
             .catch((err) => {
                 console.log(err);
+                done();
             });
-
     });
-});
+
+});*/
+
+/*
+describe("addNewUserToDB", () => {
+    "use strict";
+    jasmine.DEFAULT_TIMEOUT_INTERVAL = 30000;
+    let usersSrv = require('../Server/services/usersSrv');
+    let newUser = {
+        "userName": "eddie",
+        "email": "Eddie4.Zeltser@gmail.com",
+        "password": "abc45"
+    };
+    it("it should add new user and send back token", done => {
+        usersSrv.addNewUser(newUser)
+            .then(data => {
+                expect(data).toBeTruthy();
+                done();
+            })
+            .catch(err => {
+                console.log(err);
+                done();
+            })
+    });
+});*/
