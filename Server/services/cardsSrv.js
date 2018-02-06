@@ -5,10 +5,10 @@
  */
 'use strict';
 
-let cardSch = require('../Infra/schemas/CardSchema');
-let dbProp = require('../Infra/db/dbProperties');
-let prop = require('../Infra/properties');
-let connection = require('../Infra/db/dbConnection');
+let cardSch = require('./schemas/CardSchema');
+let dbProp = require('./db/dbProperties');
+let prop = require('./properties');
+let connection = require('./db/dbConnection');
 let cardMdl;
 
 if (!prop.IS_SIMULATOR) {

@@ -5,10 +5,10 @@
  */
 'use strict';
 
-let userSch = require('../Infra/schemas/UserSchema');
-let dbProp = require('../Infra/db/dbProperties');
-let prop = require('../Infra/properties');
-let connection = require('../Infra/db/dbConnection');
+let userSch = require('./schemas/UserSchema');
+let dbProp = require('./db/dbProperties');
+let prop = require('./properties');
+let connection = require('./db/dbConnection');
 let fs = require('fs');
 let bcrypt = require('bcrypt');
 let userMdl;
