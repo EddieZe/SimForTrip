@@ -5,10 +5,10 @@
  */
 'use strict';
 
-let cardSch = require('./schemas/CardSchema');
-let dbProp = require('./db/dbProperties');
-let prop = require('./properties');
-let connection = require('./db/dbConnection');
+let cardSch = require('../infra/schemas/CardSchema');
+let dbProp = require('../infra/db/dbProperties');
+let prop = require('../infra/properties');
+let connection = require('../infra/db/dbConnection');
 let cardMdl;
 
 if (!prop.IS_SIMULATOR) {
@@ -48,6 +48,19 @@ let getCardDet = function (card) {
         }
         else {
             // get data from DB
+            cardMdl.findOne({IMSI : card.IMSI}, (err, data) => {
+                if (err){
+                    reject(err);
+                }
+                else{
+                    if (data === null){
+                        reject('SIM card was not found');
+                    }
+                    else{
+                        resolve(data);
+                    }
+                }
+            })
         }
     });
 };

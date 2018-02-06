@@ -9,7 +9,7 @@ let cardsSrv = require('../Server/services/cardsSrv');
 describe("Cards Tests", () => {
     "use strict";
 
-    it("Should add new SIM card to DB", done => {
+/*    it("Should add new SIM card to DB", done => {
         let newCard = {
             "IMSI" : "54654654654654",
             "size" : "Nano",
@@ -24,5 +24,20 @@ describe("Cards Tests", () => {
             console.log(err);
             done();
         })
+    });*/
+
+    it("Should get me the required card details", done => {
+        let newCard = {
+            "IMSI" : "5465465465465"
+        };
+        cardsSrv.getCardDet(newCard)
+            .then(cardDet => {
+                console.log(cardDet);
+                done();
+            })
+            .catch(err => {
+                console.log(err);
+                done();
+            })
     });
 });
