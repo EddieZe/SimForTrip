@@ -39,9 +39,8 @@ UserSch.pre('save', next => {
     next();
 });
 
-UserSch.post('save', next => {
+UserSch.post('save', () => {
     console.log("New user was saved in the DB");
-    next();
 });
 
 module.exports = {

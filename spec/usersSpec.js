@@ -23,17 +23,17 @@
 
 });*/
 
-/*
+
 describe("addNewUserToDB", () => {
     "use strict";
     jasmine.DEFAULT_TIMEOUT_INTERVAL = 30000;
     let usersSrv = require('../Server/services/usersSrv');
     let newUser = {
-        "userName": "eddie",
-        "email": "Eddie4.Zeltser@gmail.com",
+        "userName": "eddie3",
+        "email": "Eddie.Zeltser@gmail.com",
         "password": "abc45"
     };
-    it("it should add new user and send back token", done => {
+   /* it("it should add new user and send back token", done => {
         usersSrv.addNewUser(newUser)
             .then(data => {
                 expect(data).toBeTruthy();
@@ -43,5 +43,5 @@ describe("addNewUserToDB", () => {
                 console.log(err);
                 done();
             })
-    });
-});*/
+    });*/
+});

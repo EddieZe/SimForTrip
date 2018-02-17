@@ -22,7 +22,7 @@ if (!prop.IS_SIMULATOR) {
     }
 }
 
-let addNewUser = function (user) {
+let addNewUser = (user) => {
     return new Promise((resolve, reject) => {
         if (prop.IS_SIMULATOR) {
             //get data from file
@@ -32,9 +32,6 @@ let addNewUser = function (user) {
             // get data from
             userMdl(user).save((err, data) => {
                 if (err){
-                    if(err.code === 11000){
-                        reject('This user name is already taken')
-                    }
                     reject(err);
                 }
                 else{
@@ -51,7 +48,7 @@ let addNewUser = function (user) {
     });
 };
 
-let getUserDetails = function (user) {
+let getUserDetails = (user) => {
     return new Promise((resolve, reject) => {
         if (prop.IS_SIMULATOR) {
             //get data from file
@@ -64,13 +61,13 @@ let getUserDetails = function (user) {
     });
 };
 
-let inactiveUser = function (user){
+let inactiveUser = (user)=> {
     return new Promise((resolve, reject) =>{
         //TO DO
     })
 };
 
-let updateUserDetails  = function (user){
+let updateUserDetails  = (user) => {
     return new Promise((resolve, reject) =>{
         //TO DO
     })

@@ -26,7 +26,7 @@ describe("Cards Tests", () => {
         })
     });*/
 
-    it("Should get me the required card details", done => {
+/*    it("Should get me the required card details", done => {
         let newCard = {
             "IMSI" : "5465465465465"
         };
@@ -39,5 +39,5 @@ describe("Cards Tests", () => {
                 console.log(err);
                 done();
             })
-    });
+    });*/
 });
